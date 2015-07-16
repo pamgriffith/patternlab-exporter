@@ -1,0 +1,269 @@
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+/* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
+/* line 6, scss/generic/_reset.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 11, scss/generic/_reset.scss */
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, li, form, legend, label, table, header, footer, nav, section, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 15, scss/generic/_reset.scss */
+header, footer, nav, section, article, hgroup, figure {
+  display: block;
+}
+
+/*------------------------------------*\
+    $GLOBAL ELEMENTS
+\*------------------------------------*/
+/* line 1, scss/base/_main.scss */
+body {
+  font: 100%/1.5 Georgia, serif;
+  color: #222222;
+  margin: 1em;
+}
+
+/* Links */
+/* line 2, scss/base/_links.scss */
+a {
+  color: #cc2200;
+}
+/* line 5, scss/base/_links.scss */
+a:hover, a:focus {
+  color: #000000;
+}
+/* line 8, scss/base/_links.scss */
+a:visited {
+  color: #555555;
+}
+
+/* line 1, scss/base/_headings.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #333333;
+  font-family: Verdana, sans-serif;
+  margin: 1em 0 0.5em;
+}
+
+/* Text-Related Elements */
+/* line 2, scss/base/_text.scss */
+p {
+  margin: 1em 0;
+}
+
+/* line 1, scss/base/_lists.scss */
+ul, ol {
+  padding-left: 1em;
+}
+
+/* line 5, scss/base/_lists.scss */
+.unstyled-list, .inline-list, .main-nav ul, .features ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 9, scss/base/_lists.scss */
+.unstyled-list li, .inline-list li, .main-nav ul li, .features ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 17, scss/base/_lists.scss */
+.inline-list li, .main-nav ul li {
+  display: inline-block;
+  margin-right: 1em;
+}
+/* line 20, scss/base/_lists.scss */
+.inline-list li:last-child, .main-nav ul li:last-child {
+  margin-right: 0;
+}
+
+/*------------------------------------*\
+    $MEDIA ELEMENTS
+\*------------------------------------*/
+/* Flexible Media */
+/* line 6, scss/base/_media.scss */
+img, video, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+/* line 1, scss/objects/_layout.scss */
+body {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*------------------------------------*\
+    $PAGE STRUCTURE
+\*------------------------------------*/
+/* line 1, scss/objects/_header.scss */
+.main-header {
+  margin: 1em 0;
+  text-align: center;
+}
+
+/* line 5, scss/objects/_header.scss */
+.logo {
+  font-size: 1.5em;
+  line-height: 1;
+  margin: 0 0 .25em;
+}
+/* line 9, scss/objects/_header.scss */
+.logo a {
+  text-decoration: none;
+}
+
+/* line 13, scss/objects/_header.scss */
+.main-nav {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* line 22, scss/objects/_header.scss */
+.logo a:visited,
+.main-nav a:visited {
+  color: #cc2200;
+}
+/* line 25, scss/objects/_header.scss */
+.logo a:hover, .logo a:focus,
+.main-nav a:hover,
+.main-nav a:focus {
+  color: #000000;
+}
+
+@media screen and (min-width: 400px) {
+  /* line 31, scss/objects/_header.scss */
+  .main-header {
+    text-align: left;
+  }
+
+  /* line 34, scss/objects/_header.scss */
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    margin: 0;
+  }
+
+  /* line 40, scss/objects/_header.scss */
+  .main-nav {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    text-align: right;
+  }
+}
+/* line 1, scss/objects/_footer.scss */
+footer {
+  text-align: center;
+}
+
+/*------------------------------------*\
+    $TEXT Styles
+\*------------------------------------*/
+/*------------------------------------*\
+    $COMPONENTS
+\*------------------------------------*/
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+/* line 4, scss/objects/_buttons.scss */
+.button {
+  display: inline-block;
+  background: #cc2200;
+  color: #ffffff;
+  line-height: 1;
+  font-weight: bold;
+  border: 0;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+/* line 16, scss/objects/_buttons.scss */
+.button:hover, .button:focus {
+  background: #000000;
+  color: #ffffff;
+}
+/* line 20, scss/objects/_buttons.scss */
+.button:visited {
+  color: #ffffff;
+}
+
+/* line 1, scss/objects/_blocks.scss */
+.hero {
+  background-color: #dddddd;
+  color: #000000;
+  text-align: center;
+  padding: 3em 2em;
+}
+/* line 7, scss/objects/_blocks.scss */
+.hero h1 {
+  margin-top: 0;
+}
+/* line 11, scss/objects/_blocks.scss */
+.hero .cta {
+  font-size: 1.2em;
+}
+
+/* line 17, scss/objects/_blocks.scss */
+.feature img {
+  margin: 0 auto;
+}
+/* line 20, scss/objects/_blocks.scss */
+.feature h2 {
+  margin: .5em 0;
+}
+@media screen and (min-width: 400px) {
+  /* line 25, scss/objects/_blocks.scss */
+  .feature img {
+    width: 35%;
+    margin-right: 5%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  /* line 31, scss/objects/_blocks.scss */
+  .feature .feature-text {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  /* line 36, scss/objects/_blocks.scss */
+  .feature h2 {
+    margin-top: 0;
+  }
+}
+
+/* line 5, scss/objects/_lists.scss */
+.features ul li {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #999999;
+}
+/* line 9, scss/objects/_lists.scss */
+.features ul li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* line 1, scss/objects/_sections.scss */
+section {
+  margin-bottom: 2em;
+}

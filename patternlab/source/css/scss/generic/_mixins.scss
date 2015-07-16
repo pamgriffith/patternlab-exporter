@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+
+@mixin media-query($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
