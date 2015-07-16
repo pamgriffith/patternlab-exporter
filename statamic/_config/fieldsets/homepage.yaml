@@ -1,0 +1,44 @@
+title: Home Page
+
+fields:
+  hero:
+    display: Banner
+    type: grid
+    min_rows: 1
+    max_rows: 1
+    fields:
+      heading:
+        display: Heading
+        type: text
+      text:
+        display: Text
+        type: markitup
+      cta_text:
+        display: Button Text
+        type: text
+      cta_link:
+        display: Button Link
+        type: text
+
+  features:
+    display: Features
+    type: grid
+    fields:
+      heading:
+        display: Heading
+        type: text
+      text:
+        display: Text
+        type: markitup
+      link:
+        display: Link
+        type: text
+      img_src:
+        display: File
+        type: file
+        allowed: [png, gif, jpg, jpeg]
+        destination: assets/img/
+        max_files: 1
+      img_alt:
+        display: Alt Text
+        type: text

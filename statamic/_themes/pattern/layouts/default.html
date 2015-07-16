@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		
+		<title>
+			{{ if segment_1 }}
+			{{ title }} - 
+			{{ endif }}
+			{{ _site_name }}
+		</title>
+
+		<!-- styles -->
+		{{ theme:css tag="true" }}
+
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/png" href="{{ theme:img src="favicon.png" }}">
+	</head>
+	<body>
+		{{ layout_content }}
+	</body>
+</html>
