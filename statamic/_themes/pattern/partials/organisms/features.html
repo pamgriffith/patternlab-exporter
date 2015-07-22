@@ -1,9 +1,9 @@
 <section class="features">
 	<ul>
-		{{features}}
+		{{ entries:listing folder="features"  }}
 		<li>
 			{{ theme:partial src="molecules/feature" use_context="true" }}
 		</li>
-		{{/features}}
+		{{ /entries:listing }}
 	</ul>
 </section>

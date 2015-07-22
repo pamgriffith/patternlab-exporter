@@ -1,0 +1,10 @@
+title: Blog Post
+type: date
+
+fields:
+  title:
+    display: Title
+    type: text
+  excerpt:
+    display: Excerpt
+    type: markitup

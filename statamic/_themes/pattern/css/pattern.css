@@ -170,6 +170,27 @@ body {
     text-align: right;
   }
 }
+/* line 2, scss/objects/_nav.scss */
+.pagination .prev {
+  width: 50%;
+  text-align: left;
+  float: left;
+}
+/* line 7, scss/objects/_nav.scss */
+.pagination .next {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
+  float: right;
+}
+/* line 13, scss/objects/_nav.scss */
+.pagination:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  line-height: 0;
+}
+
 /* line 1, scss/objects/_footer.scss */
 footer {
   text-align: center;
@@ -178,6 +199,11 @@ footer {
 /*------------------------------------*\
     $TEXT Styles
 \*------------------------------------*/
+/* line 1, scss/objects/_text.scss */
+h1.page-title {
+  text-align: center;
+}
+
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
@@ -266,4 +292,26 @@ footer {
 /* line 1, scss/objects/_sections.scss */
 section {
   margin-bottom: 2em;
+}
+
+/* line 1, scss/objects/_article.scss */
+.post-title {
+  margin-bottom: 0;
+}
+
+/* line 4, scss/objects/_article.scss */
+.post-metadata {
+  color: #666666;
+}
+
+/* line 8, scss/objects/_article.scss */
+.article-list article {
+  border-bottom: 1px solid #999999;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+}
+/* line 12, scss/objects/_article.scss */
+.article-list article:last-child {
+  border: none;
+  padding-bottom: 0;
 }

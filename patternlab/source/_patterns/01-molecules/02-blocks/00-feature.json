@@ -1,7 +1,7 @@
 {
-	"heading": "Feature heading",
-	"text": "My name is absurd too: Malachi Mulligan, two dactyls. But it has a Hellenic ring, hasn't it? Tripping and sunny like the buck himself. We must go to Athens. Will you come if I can get the aunt to fork out twenty quid?",
-	"link": "/feature",
+	"title": "Feature heading",
+	"summary": "My name is absurd too: Malachi Mulligan, two dactyls. But it has a Hellenic ring, hasn't it? Tripping and sunny like the buck himself. We must go to Athens. Will you come if I can get the aunt to fork out twenty quid?",
+	"url": "/feature",
 	"img_src": "http://placehold.it/400x300",
 	"img_alt": "Placeholder image"
 }

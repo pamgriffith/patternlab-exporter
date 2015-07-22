@@ -1,0 +1,10 @@
+title: Feature
+type: number
+
+fields:
+  cta_text:
+    display: Button Text
+    type: text
+  cta_link:
+    display: Button Link
+    type: text

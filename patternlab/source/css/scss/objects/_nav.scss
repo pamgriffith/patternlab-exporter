@@ -1,0 +1,19 @@
+.pagination {
+	.prev {
+		width: 50%;
+		text-align: left;
+		float: left;
+	}
+	.next {
+		width: 50%;
+		text-align: right;
+		display: inline-block;
+		float: right;
+	}
+	&:after {
+		content: ' ';
+		display: block;
+		clear: both;
+		line-height: 0;
+	}
+}

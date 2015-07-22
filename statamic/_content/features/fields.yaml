@@ -1,0 +1,17 @@
+title: Feature
+type: number
+
+fields:
+  summary:
+    display: Summary
+    instructions: A one-paragraph summary for the homepage
+    type: markitup
+  img_src:
+    display: Image
+    type: file
+    allowed: [png, gif, jpg, jpeg]
+    destination: assets/img/
+    max_files: 1
+  img_alt:
+    display: Image Alt Text
+    type: text
