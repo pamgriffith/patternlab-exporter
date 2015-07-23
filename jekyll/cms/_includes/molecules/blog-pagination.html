@@ -1,0 +1,9 @@
+
+<nav class="pagination">
+	{% if paginator.next_page_path %}                          
+		<a href="{{paginator.next_page_path}}" class="prev">Older</a>
+	{% endif %}                           
+	{% if paginator.previous_page_path %}                      
+		<a href="{{paginator.previous_page_path}}" class="next">Newer</a>
+	{% endif %}                       
+</nav>

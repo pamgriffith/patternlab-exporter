@@ -1,0 +1,10 @@
+<article>
+	<h2 class="post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
+	<div class="post-metadata">
+		<date class="post-date">{{ post.date | date: "%B %d, %Y" }}</date>  
+	</div>
+	<div class="post-excerpt">
+		<p>{{post.excerpt}}</p>
+	</div>
+	<a class="more-link" href="{{post.url}}">Read More</a>
+</article>

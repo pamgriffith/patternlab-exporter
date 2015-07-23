@@ -1,0 +1,18 @@
+{
+	"param": " {key}=\"{value}\" ",
+	"include": "{{% include \\1/\\2.html {params} %}}",
+	"if": "{{% if \\1 %}}",
+	"endif": "{{% endif %}}",
+	"loop": "{{% for {var} in site.\\1 %}}",
+	"paginated_loop": "{{% for {var} in paginator.\\1 %}}",
+	"endloop": "{{% endfor %}}",
+	"pager": "",
+	"endpager": "",
+	"pagination_params": "",
+	"variable": "{{{{\\1}}}}",
+	"pager_prev": "\\1paginator.previous_page_path\\2",
+	"pager_next": "\\1paginator.next_page_path\\2",
+	"page_title": "\\1page.title\\2",
+	"blog_collection": "\\1posts\\2",
+	"date_format": "{{{{ \\1 | date: \"{format}\" }}}}"
+}

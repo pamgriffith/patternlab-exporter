@@ -1,0 +1,3 @@
+source 'http://rubygems.org'
+gem 'jekyll'
+gem 'wdm', platforms: [:mingw, :mswin, :x64_mingw]

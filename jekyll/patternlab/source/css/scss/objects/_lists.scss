@@ -1,0 +1,15 @@
+.features {
+	ul {
+		@extend .unstyled-list;
+	
+		li {
+			margin-bottom: 2em;
+			padding-bottom: 2em;
+			border-bottom: $border;
+			&:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

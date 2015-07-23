@@ -24,3 +24,4 @@
 /statamic/cms/.htaccess
 /statamic/cms/admin.php
 /statamic/cms/index.php
+/jekyll/cms/_site
