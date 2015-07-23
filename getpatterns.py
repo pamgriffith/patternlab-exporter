@@ -1,7 +1,7 @@
 import sys, os, shutil, re, errno, json
 
-statamic = os.path.abspath("./statamic/_themes/pattern")
-patternlab = os.path.abspath("./patternlab")
+statamic = os.path.abspath("./statamic/cms/_themes/pattern")
+patternlab = os.path.abspath("./statamic/patternlab")
 
 with open('statamic-conversions.json') as data_file:    
     conversions = json.load(data_file)
@@ -54,6 +54,12 @@ def copyPatterns():
 
 
 def convert(line, outfile):
+	# text replacements to run before other conversions
+	pager_next = re.compile("({{[#/]{0,1}\s*)next_page(\s*}})")             # {{# next_page }} {{/ next_page }} {{next_page}}
+	pager_prev = re.compile("({{[#/]{0,1}\s*)previous_page(\s*}})")         # {{# previous_page }} {{/ previous_page }} {{previous_page}}
+	blog_collection = re.compile("({{[#/]\s*)blog(\s*}})")                  # {{# blog }} {{/ blog }}
+
+	# to convert from one template syntax to another
 	include = re.compile("\{\{\>\s*([^-\s]+)-([^\s]+)\s*\}\}")              # {{> include-name }}
 	include_with_params = ("\{\{\>\s*([^-\s]+)-([^\s]+)\s*\((.*)\)\s*\}\}") # {{> include-name(...) }}
 	startsection = re.compile("{{#\s*([^\s]+)\s*}}")                        # {{# section-name }}
@@ -63,6 +69,11 @@ def convert(line, outfile):
 	comment = re.compile("{{!\s*(.*)\s*}}")                                 # {{! key:value, key2:"value2" }} (used to annotate other tags)
 	startpager = re.compile("{{!\s*pagination\s*\((.*)\)\s*}}")             # {{! pagination(...) }}
 	endpager = re.compile("{{!/\s*pagination\s*}}")                         # {{!/ pagination }}
+
+	# Do text replacements first
+	line = re.sub(pager_next, conversions['pager_next'].format(), line)
+	line = re.sub(pager_prev, conversions['pager_prev'].format(), line)
+	line = re.sub(blog_collection, conversions['blog_collection'].format(), line)
 	
 	# Find places that include other patterns
 	if re.search(include_with_params, line):
@@ -86,10 +97,10 @@ def convert(line, outfile):
 			# it's not really a section, but mustache uses the same notation for ifs
 			line = re.sub(startsection, conversions['if'].format(), line)
 		else:
-			paramstring = ""
 			if 'limit' in params:
-				paramstring += conversions['loop_pagination_params'].format(limit=params['limit'])
-			line = re.sub(startsection, conversions['loop'].format(params=paramstring), line)
+				line = re.sub(startsection, conversions['paginated_loop'].format(limit=params['limit']), line)
+			else:
+				line = re.sub(startsection, conversions['loop'].format(), line)
 	elif re.search(endsection, line):
 		# line = re.sub(endsection, r'{{/\1}}', line)
 		params = dict()

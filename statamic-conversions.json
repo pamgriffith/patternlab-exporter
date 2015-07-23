@@ -3,11 +3,14 @@
 	"include": "{{{{ theme:partial src=\"\\1/\\2\" use_context=\"true\" {params} }}}}",
 	"if": "{{{{ if \\1 }}}}",
 	"endif": "{{{{ endif }}}}",
-	"loop": "{{{{ entries:listing folder=\"\\1\" {params} }}}}",
+	"loop": "{{{{ entries:listing folder=\"\\1\" }}}}",
+	"paginated_loop": "{{{{ entries:listing folder=\"\\1\" limit=\"{limit}\" paginate=\"true\" }}}}",
 	"endloop": "{{{{ /entries:listing }}}}",
 	"pager": "{{{{ entries:pagination {params} }}}}",
 	"endpager": "{{{{ /entries:pagination }}}}",
-	"loop_pagination_params": " limit=\"{limit}\" paginate=\"true\" ",
-	"pager_pagination_params": " limit=\"{limit}\" folder=\"{group}\" ",
-	"variable": "{{{{\\1}}}}"
+	"pagination_params": " limit=\"{limit}\" folder=\"{group}\" ",
+	"variable": "{{{{\\1}}}}",
+	"pager_prev": "\\1previous_page\\2",
+	"pager_next": "\\1next_page\\2",
+	"blog_collection": "\\1blog\\2"
 }
