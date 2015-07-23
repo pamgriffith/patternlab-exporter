@@ -51,15 +51,15 @@ def copyPatterns():
 
 
 def convert(line, outfile):
-	include = re.compile("\{\{\>\s*([^-\s]+)-([^\s]+)\s*\}\}") # {{> include-name }}
+	include = re.compile("\{\{\>\s*([^-\s]+)-([^\s]+)\s*\}\}")              # {{> include-name }}
 	include_with_params = ("\{\{\>\s*([^-\s]+)-([^\s]+)\s*\((.*)\)\s*\}\}") # {{> include-name(...) }}
-	startsection = re.compile("{{#\s*([^\s]+)\s*}}") # {{# section-name }}
-	endsection = re.compile("{{/\s*([^\s]+)\s*}}") # {{/ section-name }}
-	variable = re.compile("{{\s*([^\s]+)\s*}}") # {{ variable-name }}
-	variable_to_format = re.compile("{{{\s*([^\s]+)\s*}}}") # {{{ variable-name }}}
-	comment = re.compile("{{!\s*(.*)\s*}}") # {{! key:value, key2:"value2" }} (used to annotate other tags)
-	startpager = re.compile("{{!\s*pagination\s*\((.*)\)\s*}}") # {{! pagination(...) }}
-	endpager = re.compile("{{!/\s*pagination\s*}}") # {{!/ pagination }}
+	startsection = re.compile("{{#\s*([^\s]+)\s*}}")                        # {{# section-name }}
+	endsection = re.compile("{{/\s*([^\s]+)\s*}}")                          # {{/ section-name }}
+	variable = re.compile("{{\s*([^\s]+)\s*}}")                             # {{ variable-name }}
+	variable_to_format = re.compile("{{{\s*([^\s]+)\s*}}}")                 # {{{ variable-name }}}
+	comment = re.compile("{{!\s*(.*)\s*}}")                                 # {{! key:value, key2:"value2" }} (used to annotate other tags)
+	startpager = re.compile("{{!\s*pagination\s*\((.*)\)\s*}}")             # {{! pagination(...) }}
+	endpager = re.compile("{{!/\s*pagination\s*}}")                         # {{!/ pagination }}
 	
 	if re.search(include_with_params, line):
 		# get parameters for the include
@@ -112,8 +112,9 @@ def convert(line, outfile):
 	elif re.search(variable_to_format, line):
 		# remove one set of parentheses from variables that don't need escaping in patternlab
 		line = re.sub(variable_to_format, r'{{\1}}', line)
-	# elif re.search(variable, line):
+	elif re.search(variable, line):
 		# do nothing, works as-is
+		line = re.sub(variable_to_format, r'{{\1}}', line)
 
 	# get rid of annotations before output
 	line = re.sub(comment, r' ', line)
