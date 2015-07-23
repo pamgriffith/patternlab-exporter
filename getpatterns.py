@@ -1,7 +1,10 @@
-import sys, os, shutil, re, errno
+import sys, os, shutil, re, errno, json
 
-statamic = os.path.abspath("./_themes/pattern")
-patternlab = os.path.abspath("../patternlab")
+statamic = os.path.abspath("./statamic/_themes/pattern")
+patternlab = os.path.abspath("./patternlab")
+
+with open('statamic-conversions.json') as data_file:    
+    conversions = json.load(data_file)
 
 def outname(fname):
 	return re.match(r"([0-9]+-)?(.*)\.mustache", fname).group(2) + '.html'
@@ -61,31 +64,32 @@ def convert(line, outfile):
 	startpager = re.compile("{{!\s*pagination\s*\((.*)\)\s*}}")             # {{! pagination(...) }}
 	endpager = re.compile("{{!/\s*pagination\s*}}")                         # {{!/ pagination }}
 	
+	# Find places that include other patterns
 	if re.search(include_with_params, line):
 		# get parameters for the include
 		params = getParams(re.search(include_with_params, line).group(3))
 		paramstring = ""
 		for key, value in params.iteritems():
-			paramstring += " {0}=\"{1}\" ".format(key, value.encode('string_escape'))
+			paramstring += conversions['param'].format(key=key, value=value.encode('string_escape'))
 		# convert
-		line = re.sub(include_with_params, r'{{ theme:partial src="\1/\2" use_context="true" '+paramstring+' }}', line)
+		line = re.sub(include_with_params, conversions['include'].format(params=paramstring), line)
 	elif re.search(include, line):
-		line = re.sub(include, r'{{ theme:partial src="\1/\2" use_context="true" }}', line)
+		line = re.sub(include, conversions['include'].format(params=""), line)
 	
+	# Find loops and if statements (mustache uses the same syntax for both, so if statements will have additional annotation)
 	elif re.search(startsection, line):
-		# line = re.sub(startsection, r'{{\1}}', line)
 		params = dict()
 		annotation = re.search(comment, line)
 		if annotation:
 			params = getParams(annotation.group(1))
 		if 'convert_to_if' in params:
 			# it's not really a section, but mustache uses the same notation for ifs
-			line = re.sub(startsection, r'{{ if \1 }}', line)
+			line = re.sub(startsection, conversions['if'].format(), line)
 		else:
 			paramstring = ""
 			if 'limit' in params:
-				paramstring += ' limit="{0}" paginate="true" '.format(params['limit'])
-			line = re.sub(startsection, r'{{ entries:listing folder="\1" '+paramstring+' }}', line)
+				paramstring += conversions['loop_pagination_params'].format(limit=params['limit'])
+			line = re.sub(startsection, conversions['loop'].format(params=paramstring), line)
 	elif re.search(endsection, line):
 		# line = re.sub(endsection, r'{{/\1}}', line)
 		params = dict()
@@ -94,27 +98,23 @@ def convert(line, outfile):
 			params = getParams(annotation.group(1))
 		if 'convert_to_if' in params:
 			# it's not really a section, but mustache uses the same notation for ifs
-			line = re.sub(endsection, r'{{ endif }}', line)
+			line = re.sub(endsection, conversions['endif'].format(), line)
 		else:
-			line = re.sub(endsection, r'{{ /entries:listing }}', line)
+			line = re.sub(endsection, conversions['endloop'].format(), line)
 	
+	# Find pagination (mustache doesn't do this, so it uses special annotations)
 	elif re.search(startpager, line):
 		params = getParams(re.search(startpager,line).group(1))
-		paramstring = ""
-		if 'limit' in params:
-			paramstring += ' limit="{0}" '.format(params['limit'])
-		if 'group' in params:
-			paramstring += ' folder="{0}" '.format(params['group'])
-		line = re.sub(startpager, r'{{ entries:pagination '+paramstring+' }}', line)
+		paramstring = conversions['pager_pagination_params'].format(limit=params['limit'], group=params['group'])
+		line = re.sub(startpager, conversions['pager'].format(params=paramstring), line)
 	elif re.search(endpager, line):
-		line = re.sub(endpager, r'{{ /entries:pagination }}', line)
+		line = re.sub(endpager, conversions['endpager'].format(), line)
 
+	# Find regular variables
 	elif re.search(variable_to_format, line):
-		# remove one set of parentheses from variables that don't need escaping in patternlab
-		line = re.sub(variable_to_format, r'{{\1}}', line)
+		line = re.sub(variable_to_format, conversions['variable'].format(), line)
 	elif re.search(variable, line):
-		# do nothing, works as-is
-		line = re.sub(variable_to_format, r'{{\1}}', line)
+		line = re.sub(variable_to_format, conversions['variable'].format(), line)
 
 	# get rid of annotations before output
 	line = re.sub(comment, r' ', line)

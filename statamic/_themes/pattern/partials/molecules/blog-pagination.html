@@ -1,10 +1,10 @@
-{{ entries:pagination  limit="5"  folder="blog"  }}
+{{ entries:pagination  limit="5" folder="blog"  }}
 <nav class="pagination">
 	{{ if next_page }}                          
 		<a href="{{next_page}}" class="prev">Older</a>
 	{{ endif }}                           
-	{{ if previous_page }}                              
+	{{ if previous_page }}                      
 		<a href="{{previous_page}}" class="next">Newer</a>
-	{{ endif }}                               
+	{{ endif }}                       
 </nav>
 {{ /entries:pagination }}

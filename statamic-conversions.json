@@ -1,0 +1,13 @@
+{
+	"param": " {key}=\"{value}\" ",
+	"include": "{{{{ theme:partial src=\"\\1/\\2\" use_context=\"true\" {params} }}}}",
+	"if": "{{{{ if \\1 }}}}",
+	"endif": "{{{{ endif }}}}",
+	"loop": "{{{{ entries:listing folder=\"\\1\" {params} }}}}",
+	"endloop": "{{{{ /entries:listing }}}}",
+	"pager": "{{{{ entries:pagination {params} }}}}",
+	"endpager": "{{{{ /entries:pagination }}}}",
+	"loop_pagination_params": " limit=\"{limit}\" paginate=\"true\" ",
+	"pager_pagination_params": " limit=\"{limit}\" folder=\"{group}\" ",
+	"variable": "{{{{\\1}}}}"
+}
