@@ -110,3 +110,10 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 MEDIA_URL = '/images/'
+
+
+# Markdown fields
+import markdown
+MARKUP_FIELD_TYPES = (
+    ('markdown', markdown.markdown),
+)

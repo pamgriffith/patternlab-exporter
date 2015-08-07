@@ -1,4 +1,5 @@
 from django.db import models
+from markupfield.fields import MarkupField
 
 from django.utils import timezone
 
@@ -6,8 +7,8 @@ from django.utils import timezone
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     url = models.SlugField()
-    excerpt = models.TextField()
-    content = models.TextField()
+    excerpt = MarkupField(markup_type='markdown')
+    content = MarkupField(markup_type='markdown')
     date = models.DateTimeField(default=timezone.now)
     def __unicode__(self):
         return unicode(self.title)
