@@ -1,0 +1,6 @@
+<div class="article-list">
+	{% for post in blog %}  
+	{% include "molecules/article-excerpt.html" %}
+	{% endfor %}
+	{% include "molecules/blog-pagination.html" %}
+</div>

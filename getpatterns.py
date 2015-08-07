@@ -10,6 +10,7 @@ class converter(object):
 		self.destination_templates = ""
 		self.destination_patterns = ""
 		self.template_prepend = ""
+		self.template_append = ""
 
 		with open("{cms}-conversions.json".format(cms=cms)) as data_file:    
 			self.conversions = json.load(data_file)
@@ -24,6 +25,13 @@ class converter(object):
 			self.destination_templates = "_layouts"
 			self.destination_patterns = "_includes/{0}"
 			self.template_prepend = "---\nlayout: default\n---\n"
+		elif cms == "django":
+			self.destination = os.path.abspath("./django/cms")
+			self.destination_css = "assets/css/style.css"
+			self.destination_templates = "templates/templates"
+			self.destination_patterns = "templates/{0}"
+			self.template_prepend = "{% extends \"_base.html\" %}\n{% block content %}\n"
+			self.template_append = "\n{% endblock %}"
 
 	def outname(self, fname):
 		return re.match(r"([0-9]+-)?(.*)\.mustache", fname).group(2) + '.html'
@@ -51,6 +59,7 @@ class converter(object):
 				content = infile.readlines()
 				for line in content:
 					self.convert(line, outfile)
+				outfile.write(self.template_append)
 
 	def copyPatterns(self):
 		inPattern = "source/_patterns/{0}-{1}"
@@ -105,7 +114,7 @@ class converter(object):
 			for key, value in params.iteritems():
 				paramstring += self.conversions['param'].format(key=key, value=value.encode('string_escape'))
 			# convert
-			line = re.sub(include_with_params, self.conversions['include'].format(params=paramstring), line)
+			line = re.sub(include_with_params, self.conversions['include_with_params'].format(params=paramstring), line)
 		elif re.search(include, line):
 			line = re.sub(include, self.conversions['include'].format(params=""), line)
 		
@@ -174,7 +183,7 @@ class converter(object):
 		return params
 
 if __name__ == "__main__":
-	if sys.argv[1] and sys.argv[1] in ["statamic", "jekyll"]:
+	if sys.argv[1] and sys.argv[1] in ["statamic", "jekyll", "django"]:
 		c = converter(sys.argv[1])
 		c.moveCss()
 		c.copyTemplates()

@@ -1,6 +1,7 @@
 {
 	"param": " {key}=\"{value}\" ",
-	"include": "{{% include \\1/\\2.html {params} %}}",
+	"include": "{{% include \\1/\\2.html %}}",
+	"include_with_params": "{{% include \\1/\\2.html {params} %}}",
 	"if": "{{% if \\1 %}}",
 	"endif": "{{% endif %}}",
 	"loop": "{{% for {var} in site.\\1 %}}",

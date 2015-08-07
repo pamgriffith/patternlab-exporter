@@ -1,0 +1,7 @@
+{% for hero in hero %}  
+<section class="hero">
+	<h1>{{hero.title}}</h1>
+	<p>{{hero.content}}</p>
+	<a class="button cta" href="{{hero.cta_link}}">{{hero.cta_text}}</a>
+</section>
+{% endfor %}

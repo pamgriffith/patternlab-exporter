@@ -1,0 +1,10 @@
+{{! pagination(group:"blog", limit:"5") }}
+<nav class="pagination">
+	{{# next_page }}                         {{! convert_to_if:true }}
+		<a href="{{next_page}}" class="prev">Older</a>
+	{{/ next_page}}                          {{! convert_to_if:true }}
+	{{# previous_page }}                     {{! convert_to_if:true }}
+		<a href="{{previous_page}}" class="next">Newer</a>
+	{{/ previous_page}}                      {{! convert_to_if:true }}
+</nav>
+{{!/ pagination }}

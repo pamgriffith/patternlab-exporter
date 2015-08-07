@@ -1,0 +1,92 @@
+{
+	"title" : "Pattern Lab",
+	"img": {
+		"src": "http://placehold.it/400x300",
+		"alt": "Placeholder image"
+	},
+	"next_page": "/page/3",
+	"previous_page": "/page/1",
+	"hero": [
+		{
+			"hero": {
+				"title": "Stately, plump Buck Mulligan came from the stairhead",
+				"content": "He pointed his finger in friendly jest and went over to the parapet, laughing to himself. Stephen Dedalus stepped up, followed him wearily halfway and sat down on the edge of the gunrest, watching him still as he propped his mirror on the parapet, dipped the brush in the bowl and lathered cheeks and neck.",
+				"cta_text": "Call to Action",
+				"cta_link": "/cta"
+			}
+		}
+	],
+	"features": [
+		{
+			"feature": {
+				"title": "Feature 1",
+				"summary": "My name is absurd too: Malachi Mulligan, two dactyls. But it has a Hellenic ring, hasn't it? Tripping and sunny like the buck himself. We must go to Athens. Will you come if I can get the aunt to fork out twenty quid?",
+				"url": "/1",
+				"img_src": "http://placehold.it/400x300",
+				"img_alt": "Placeholder image"
+			}
+		},
+		{
+			"feature": {
+				"title": "Feature 2",
+				"summary": "God, isn't he dreadful? he said frankly. A ponderous Saxon. He thinks you're not a gentleman. God, these bloody English! Bursting with money and indigestion.",
+				"url": "/2",
+				"img_src": "http://placehold.it/400x300",
+				"img_alt": "Placeholder image"
+			}
+		},
+		{
+			"feature": {
+				"title": "Feature 3",
+				"summary": "The bard's noserag! A new art colour for our Irish poets: snotgreen. You can almost taste it, can't you?",
+				"url": "/3",
+				"img_src": "http://placehold.it/400x300",
+				"img_alt": "Placeholder image"
+			}
+		},
+		{
+			"feature": {
+				"title": "Feature 4",
+				"summary": "For this, O dearly beloved, is the genuine Christine: body and soul and blood and ouns. Slow music, please. Shut your eyes, gents. One moment. A little trouble about those white corpuscles. Silence, all.",
+				"url": "/4",
+				"img_src": "http://placehold.it/400x300",
+				"img_alt": "Placeholder image"
+			}
+		},
+		{
+			"feature": {
+				"title": "Feature 5",
+				"summary": "Stephen Dedalus stepped up, followed him wearily halfway and sat down on the edge of the gunrest, watching him still as he propped his mirror on the parapet, dipped the brush in the bowl and lathered cheeks and neck.",
+				"url": "/5",
+				"img_src": "http://placehold.it/400x300",
+				"img_alt": "Placeholder image"
+			}
+		}
+	],
+	"blog": [
+		{
+			"post": {
+				"title": "Article 1",
+				"date": "July 21, 2015",
+				"excerpt": "Warm sunshine merrying over the sea. The nickel shavingbowl shone, forgotten, on the parapet. Why should I bring it down? Or leave it there all day, forgotten friendship?",
+				"url": "/blog/1"
+			}
+		},
+		{
+			"post": {
+				"title": "Article 2",
+				"date": "July 18, 2015",
+				"excerpt": "He went over to it, held it in his hands awhile, feeling its coolness, smelling the clammy slaver of the lather in which the brush was stuck. So I carried the boat of incense then at Clongowes. I am another now and yet the same. A servant too. A server of a servant.",
+				"url": "/blog/2"
+			}
+		},
+		{
+			"post": {
+				"title": "Article 3",
+				"date": "July 15, 2015",
+				"excerpt": "In the gloomy domed livingroom of the tower Buck Mulligan's gowned form moved briskly to and fro about the hearth, hiding and revealing its yellow glow. Two shafts of soft daylight fell across the flagged floor from the high barbacans: and at the meeting of their rays a cloud of coalsmoke and fumes of fried grease floated, turning.",
+				"url": "/blog/3"
+			}
+		}
+	]
+}

@@ -1,6 +1,7 @@
 {
 	"param": " {key}=\"{value}\" ",
-	"include": "{{{{ theme:partial src=\"\\1/\\2\" use_context=\"true\" {params} }}}}",
+	"include": "{{{{ theme:partial src=\"\\1/\\2\" use_context=\"true\" }}}}",
+	"include_with_params": "{{{{ theme:partial src=\"\\1/\\2\" use_context=\"true\" {params} }}}}",
 	"if": "{{{{ if \\1 }}}}",
 	"endif": "{{{{ endif }}}}",
 	"loop": "{{{{ entries:listing folder=\"\\1\" }}}}",
