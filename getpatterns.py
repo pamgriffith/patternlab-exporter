@@ -4,7 +4,7 @@ class converter(object):
 
 	def __init__(self, cms):
 		self.destination = ""
-		self.source = os.path.abspath("./{cms}/patternlab".format(cms=cms))
+		self.source = ""
 		self.conversions = ""
 		self.destination_css = ""
 		self.destination_templates = ""
@@ -15,19 +15,21 @@ class converter(object):
 		with open("{cms}-conversions.json".format(cms=cms)) as data_file:    
 			self.conversions = json.load(data_file)
 		if cms == "statamic":
-			self.destination = os.path.abspath("./statamic/cms/_themes/pattern")
+			self.source = os.path.abspath("./patternlab-unscoped")
+			self.destination = os.path.abspath("./statamic/_themes/pattern")
 			self.destination_css = "css/pattern.css"
 			self.destination_templates = "templates"
 			self.destination_patterns = "partials/{0}"
 		elif cms == "jekyll":
-			self.destination = os.path.abspath("./jekyll/cms")
+			self.source = os.path.abspath("./patternlab-scoped")
+			self.destination = os.path.abspath("./jekyll")
 			self.destination_css = "css/style.css"
 			self.destination_templates = "_layouts"
 			self.destination_patterns = "_includes/{0}"
 			self.template_prepend = "---\nlayout: default\n---\n"
 		elif cms == "django":
-			self.source = os.path.abspath("./{cms}/patternlab".format(cms="jekyll"))
-			self.destination = os.path.abspath("./django/cms")
+			self.source = os.path.abspath("./patternlab-scoped")
+			self.destination = os.path.abspath("./django")
 			self.destination_css = "assets/css/style.css"
 			self.destination_templates = "templates/templates"
 			self.destination_patterns = "templates/{0}"
