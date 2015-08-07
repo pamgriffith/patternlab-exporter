@@ -26,6 +26,7 @@ class converter(object):
 			self.destination_patterns = "_includes/{0}"
 			self.template_prepend = "---\nlayout: default\n---\n"
 		elif cms == "django":
+			self.source = os.path.abspath("./{cms}/patternlab".format(cms="jekyll"))
 			self.destination = os.path.abspath("./django/cms")
 			self.destination_css = "assets/css/style.css"
 			self.destination_templates = "templates/templates"
@@ -164,7 +165,7 @@ class converter(object):
 			if annotation:
 				params = self.getParams(annotation.group(1))
 			if 'date' in params:
-				line = re.sub(variable, self.conversions['date_format'].format(format=params['date']), line)
+				line = re.sub(variable, self.conversions['date_format'].format(), line)
 			else:
 				line = re.sub(variable, self.conversions['variable'].format(), line)
 

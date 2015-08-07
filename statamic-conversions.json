@@ -15,5 +15,5 @@
 	"pager_next": "\\1next_page\\2",
 	"page_title": "\\1title\\2",
 	"blog_collection": "\\1blog\\2",
-	"date_format": "{{{{ \\1 format=\"{format}\" }}}}"
+	"date_format": "{{{{ \\1 format=\"F j, Y\" }}}}"
 }

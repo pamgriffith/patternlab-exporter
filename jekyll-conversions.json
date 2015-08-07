@@ -15,5 +15,5 @@
 	"pager_next": "\\1paginator.next_page_path\\2",
 	"page_title": "\\1page.title\\2",
 	"blog_collection": "\\1posts\\2",
-	"date_format": "{{{{ \\1 | date: \"{format}\" }}}}"
+	"date_format": "{{{{ \\1 | date: \"%B %d, %Y\" }}}}"
 }

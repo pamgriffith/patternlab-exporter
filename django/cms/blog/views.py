@@ -30,5 +30,5 @@ def index(request):
     return render(request, 'templates/blog.html', {'blog': blog, 'page': page, 'next_page': next_page, 'previous_page': previous_page})
 
 def article(request, post_id):
-    post = Blog.objects.get(url=post_id)
-    return render(request, 'templates/article.html', {'post': post})
+    page = Blog.objects.get(url=post_id)
+    return render(request, 'templates/article.html', {'page': page})
