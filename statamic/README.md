@@ -22,4 +22,4 @@ All of the content files are stored in _content. The homepage content is in _con
 
 ## Editing Data Models
 
-Each content type subfolder also has a fields.yaml that [lets you specify](http://statamic.com/learn/control-panel/fields-and-fieldsets) what data can be entered for that content type. If you make a change to your templates that requires a change in the data, you will need to edit the appropriate fields.yaml, too, it will not be updated for you automatically when you import the templates.
+Each content type subfolder also has a fields.yaml that [lets you specify](http://statamic.com/learn/control-panel/fields-and-fieldsets) what data can be entered for that content type. If you make a change to your templates that requires a change in the data, you will need to edit the appropriate fields.yaml, too, it will not be updated for you automatically when you import the templates. You will also need to make sure existing content is updated accordingly.
