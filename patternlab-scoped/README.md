@@ -4,7 +4,7 @@ These files were set up using Pattern Lab version 0.7.12.
 
 ## Installing and Running Pattern Lab
 
-1. [Install PHP](http://php.net/manual/en/install.php) if you don't already have it and make sure you can use it on the command line
+1. [Install PHP](http://php.net/manual/en/install.php) if you don't already have it and make sure you can use it on the command line. If you're using Statamic with [WAMP](http://www.wampserver.com/en/), you probably want to use the same copy of PHP that's bundled with that instead of installing a second copy, but you'll need to tell the command line [where to look for php](http://stackoverflow.com/questions/2736528/how-to-set-the-env-variable-for-php).
 
 2. Download and extract a copy of Pattern Lab
 

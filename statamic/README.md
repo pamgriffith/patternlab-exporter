@@ -1,21 +1,25 @@
 This was set up with [Statamic](http://statamic.com/) version 1.10.5. To see it working:
 
-- Get a copy of Statamic (which is not free, so it's not committed with this repository) and extract it somewhere, then remove the _themes and _content folders so the default site doesn't overwrite this one
-- Remove everything in _config/fieldsets, too, so the default content types don't get confusing
-- Copy everything else into this folder
-- [Set up Statamic](http://statamic.com/learn/installing-and-updating/installing) according to official instructions. If you can, I'd recommend setting up a virtual host instead of running in a subdirectory because uploaded file urls don't seem to work right otherwise.
-- Edit _theme in config/settings.yaml to say pattern instead of whatever their default is
+1. You will need PHP and a web server. I like [WAMP](http://www.wampserver.com/en/) on Windows and [MAMP](https://www.mamp.info/en/) on Mac or [these instructions](https://help.ubuntu.com/community/ApacheMySQLPHP) on Ubuntu. You may also want to look at their [other requirements notes](http://statamic.com/learn/getting-ready).
 
-You should be able to see the pre-imported patterns at the site root if it's set up correctly.
+2. Get a copy of Statamic (which is not free, so it's not committed with this repository) and extract it somewhere.
 
-The homepage is in _content/page.md, which you can also edit in the control panel, but it has no content; the area at the top is the "hero" content type located in the hero folder, or you can edit it in the control panel by getting the list of hero items, then editing the one that's in there (probably best not to add more). Do make use of the control panel, the yaml on these content types is ok but easy to forget or break.
+3. Copy everything from the extracted folder except the _themes, _content, and assets directories into the statamic directory.
 
-The features are the "features" content type, located in the features folder and also available in the control panel. You can add as many as you want and the page will show all of them.
+4. Open _config/fieldsets and remove the contents; these are the content types for the default site, which we won't be using.
 
-There is also a blog page that shows a paged list of blog posts, 5 at a time. Those are the blog content type, located in the blog folder.
+5. Edit _theme in config/settings.yaml to say "pattern" instead of the default site theme, that will be where the importer will place the templates.
 
-If you update the base patternlab patterns, run
-```
-python getpatterns.py
-```
-to import them into Statamic. You will need [python 2.7](https://www.python.org/downloads/) installed to run the script (if you're new to python, do not get version 3, it's pretty different and the script will not work).
+6. Copy the statamic folder to your server and then [set up Statamic](http://statamic.com/learn/installing-and-updating/installing) according to official instructions. If you can, I'd recommend setting up a virtual host instead of running in a subdirectory, it seems to work better that way.
+
+7. Open your site in a web browser. You should be able to see the pre-imported patterns if it's set up correctly.
+
+## Editing Content
+
+Statamic stores all of your content in markdown files, which you can edit directly, but it also provides a control panel that tells you what fields are needed for a given content type and makes it easy to edit without breaking anything. In addition to the above instructions, you'll need to set up a [new admin user](http://statamic.com/learn/control-panel/managing-members) then log into the control panel (if your site is http://localhost, the control panel would be http://localhost/admin). The home page and three content types (blog, features, and hero) should be there ready for you to edit. Features and hero are used by the homepage template, the blog templates use the blog content type.
+
+All of the content files are stored in _content. The homepage content is in _content/page.md, the three content types have their own subfolders in _content.
+
+## Editing Data Models
+
+Each content type subfolder also has a fields.yaml that [lets you specify](http://statamic.com/learn/control-panel/fields-and-fieldsets) what data can be entered for that content type. If you make a change to your templates that requires a change in the data, you will need to edit the appropriate fields.yaml, too, it will not be updated for you automatically when you import the templates.
